@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/modernizr-2.8.3.js"></script>
+<script src="~/Scripts/Livraria/Livro.js"></script>
+
+<div style="margin-top:40px;" class="container">
+    <h2>Livraria</h2><br /><br />
+    <div  class="botoes" style="margin-bottom:30px;">
+        <div  style="padding-left:0px;" class="col-md-4">
+            <input type="text" style="display:inline-block; vertical-align:central;" class="col-sm-3 form-control" id="BookName" placeholder="Nome do Livro" />
+        </div>
+        <div class="col-md-3">
+            <button type="button" style=" vertical-align:middle;" class="btn btn-primary" id="btnBuscar" onclick="SearchByName();">Buscar</button>
+        </div>
+
+        <div class="col-md-3 pull-right">
+            <button type="button" style="display:inline-block; vertical-align:middle; float:right;" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Adicionar Novo Livro</button><br /><br />
+        </div>
+        <br /><br />
+
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Título
+                </th>
+                <th>
+                    Autor
+                </th>
+                <th>
+                    Editora
+                </th>
+                <th>
+                    Páginas
+                </th>
+                <th>
+                    Ano de Publicação
+                </th>
+
+                <th>
+                    Ação
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body" style="background-color:cornflowerblue;  ">
+                <div class="form-group">
+                    <label for="LivroId">ID</label>
+                    <input type="text" class="form-control" id="LivroId" placeholder="Id" disabled="disabled" />
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" class="form-control" id="titulo" placeholder="Título" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="autor">Autor</label>
+                    <input type="text" class="form-control" id="autor" placeholder="Autor" />
+                </div>
+                <div class="form-group">
+                    <label for="editora">Editora</label>
+                    <input type="text" class="form-control" id="editora" placeholder="Editora" />
+                </div>
+                <div class="form-group">
+                    <label for="anoPublicacao">Ano de Publicação</label>
+                    <input type="text" class="form-control" id="anoPublicacao" placeholder="Ano de Publicação" />
+                </div>
+                <div class="form-group">
+                    <label for="numeroPaginas">Páginas</label>
+                    <input type="text" class="form-control" id="numeroPaginas" placeholder="Páginas" />
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Adicionar</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Atualizar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
